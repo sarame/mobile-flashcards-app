@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
-import { white, green, red, grey } from '../utils/colors';
+import { white, red, black, blue, whiteGrey, darkBlue } from '../utils/colors';
 import { Ionicons } from '@expo/vector-icons';
 
 export class DeckCard extends Component {
@@ -21,7 +21,7 @@ export class DeckCard extends Component {
             this.props.navigation.navigate('AddQuestion', { title: this.props.deck.title })
           }>
           <Text style={styles.btnText}>
-            <Ionicons name='ios-add-circle-outline' size={16} color={white} 
+            <Ionicons name='ios-add-circle-outline' size={16} color={black} 
             style={{marginRight: 16}}/> Add Question
           </Text>
         </TouchableOpacity>
@@ -31,7 +31,7 @@ export class DeckCard extends Component {
               title: this.props.deck.title,
              })}>
             <Text style={styles.btnText}>
-            <Ionicons name='ios-help-circle-outline' size={16} color={white} 
+            <Ionicons name='ios-help-circle-outline' size={16} color={black} 
               style={{marginRight: 16}}/> Start Quiz
             </Text>
           </TouchableOpacity>
@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
   wrapperDeckCard: {
     flex: 1,
     padding: 32,
-    paddingTop: 64
+    paddingTop: 64,
+    backgroundColor: whiteGrey
   },
   text: {
     fontSize: 24,
@@ -83,12 +84,14 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     textAlign: 'center',
     borderRadius: 5,
-    backgroundColor: '#004290',
-    color: white
+    borderWidth: 1,
+    borderColor: blue,
+    color:black,
+    backgroundColor: white
+
   },
   btnText: {
-    color: '#004290',
+    color: black,
     fontSize: 16,
-    color: white
   }
 });

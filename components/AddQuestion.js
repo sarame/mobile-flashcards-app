@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import { grey, green, white, red } from '../utils/colors';
+import { darkBlue, whiteGrey, white, blue } from '../utils/colors';
 import { addQuestionAction } from '../actions/index';
 import { addQuestionAPI } from '../utils/api';
-import { styles } from "../assets/style";
 
 export class AddQuestion extends Component {
   state = {
@@ -67,3 +66,41 @@ const mapStateToProps = (state, { route }) => {
   };
 };
 export default connect(mapStateToProps, { addQuestionAction })(AddQuestion);
+const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: whiteGrey
+  },
+  label: {
+    textAlign: 'center',
+    fontSize: 24,
+    marginBottom: 8
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: darkBlue,
+    backgroundColor: white,
+    paddingLeft: 16,
+    paddingRight: 16,
+    borderRadius: 5,
+    fontSize: 16,
+    height: 50,
+    marginBottom: 0
+  },
+  submitBtn: {
+    height: 50,
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: blue
+  },
+  btnText: {
+    color: darkBlue,
+    fontSize: 16,
+    color: white
+  },
+  btnDisabled: {
+    backgroundColor: '#ccc'
+  }
+});

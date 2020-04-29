@@ -1,19 +1,38 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, StatusBar } from 'react-native';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import { Provider } from 'react-redux';
+import reducer from './reducers/index';
+import Constants from 'expo-constants';
+import FlashCardsTabs from './navigation/AppNavigator';
+import { green, darkBlue } from './utils/colors';
+import { setLocalNotification } from './utils/helpers';
 
-export default function App() {
+const store = createStore( reducer, applyMiddleware(thunk, logger));
+
+function FlashCardStatusBar({ backgroundColor, ...props }) {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
+      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F3F5F9',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default class App extends React.Component {
+  componentDidMount() {
+    setLocalNotification();
+  }
+  render() {
+    return (
+      <Provider store={store}>
+          <FlashCardStatusBar
+            backgroundColor={darkBlue}
+            barStyle="light-content"
+          />
+          <FlashCardsTabs/>
+      </Provider>
+    );
+  }
+}

@@ -16,7 +16,7 @@ export function clearLocalNotification() {
 function createNotification() {
   return {
     title: 'Flashcards Reminder',
-    body: "👋 Don't forget to take today's Quiz!",
+    body: "Hi,👋 Don't forget to take today's Quiz!",
     ios: {
       sound: true
     },

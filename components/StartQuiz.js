@@ -215,7 +215,6 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   btnText: {
-    color: black
   },
   resultText: {
     color: '#444',

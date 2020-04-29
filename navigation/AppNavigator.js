@@ -10,7 +10,7 @@ import AddDeck from '../components/AddDeck';
 import DeckCard from '../components/DeckCard';
 import AddQuestion from '../components/AddQuestion';
 import StartQuiz from '../components/StartQuiz';
-import { green, grey } from '../utils/colors';
+import { green, grey, darkBlue } from '../utils/colors';
 
 const isIOS = Platform.OS === 'ios' ? true : false;
 
@@ -56,7 +56,7 @@ function FlashCardsTabs() {
                     return tabNavOptions(route, focused, color, size)
                    }})}
                   tabBarOptions={{
-                  activeTintColor: green,
+                  activeTintColor: darkBlue,
                   inactiveTintColor: grey,
                   }}>
       <Tab.Screen name="DecksListStackScreen" component={DecksListStackScreen} options={{ title: 'Decks' }}/>
